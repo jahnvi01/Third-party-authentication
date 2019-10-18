@@ -7,7 +7,7 @@ class prolist extends Component {
         const item=this.props.products.map( product=>{   return <Product key={product.id} product={product}/>;});
          
         return (
-            <div>
+            <div className="row">
             
                 {item}
                 </div>

@@ -9,8 +9,8 @@ class prolist extends Component {
        const { id,title,img,price }=this.props.product;
      
         return (
-            <div>
-                <div className="col-lg-4 col-md-6 card-cont"> 
+          
+                <div className="col-md-4 card-cont"> 
             <div className="card" key={id}>
            
        
@@ -28,7 +28,7 @@ class prolist extends Component {
           
         
                 
-                </div>
+           
           );
     }
   }

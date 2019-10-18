@@ -18,11 +18,39 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+#logo{
+  text-align:left;
+  display: flex;
+  align-self: center;
+  padding-left: 3%;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: cursive;
 
+}
 .App-link {
   color: #61dafb;
 }
-
+.navbar{
+  background: lightgray;
+}
+.nav-link{
+  color: black;
+}
+.nav-list{
+  text-decoration: none;
+  display: flex !important;
+  align-items:center;
+  
+  font-size:20px;
+  padding-top: 2%;
+  font-style: italic;  
+  list-style: none !important;
+  justify-content: space-around;
+}
+.nav-list li{
+  list-style: none;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
