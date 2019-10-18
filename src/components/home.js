@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withAuth } from '@okta/okta-react';
 import Avatar from '../images/profile.png';
+import Prolist from './prolist';
 export default withAuth(class Home extends Component {
   constructor(props) {
     super(props);
@@ -83,11 +84,11 @@ console.log("render");
 
     return (
       <div>
-        <Link to='/profile'>Profile</Link><br/>
-  hello
+      
         {button}
 
         {this.showInfo()}
+        <Prolist />
       </div>
     );
   }

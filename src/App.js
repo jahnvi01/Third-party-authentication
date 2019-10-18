@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-
+import Navbar from './components/navbar';
 import { Security, SecureRoute, ImplicitCallback } from '@okta/okta-react';
 import Login from './components/login';
 import Home from './components/home';
@@ -8,9 +8,9 @@ import Profile from './components/profile';
 
 
 const config = {
-  issuer: 'https://dev-545576.okta.com/oauth2/default',
+  issuer: 'https://dev-630882.okta.com/oauth2/default',
 redirect_uri: window.location.origin + '/implicit/callback',
-  client_id: '0oa12z6ft6JjzgoDA357'
+  client_id: '0oa1lw2h72y4O5wPG357'
 }
 
 class App extends Component {
@@ -22,7 +22,7 @@ class App extends Component {
        
      return (
          <div className="App">
-
+<Navbar />
 <Router>
          
              <Security issuer={config.issuer}
@@ -34,7 +34,7 @@ class App extends Component {
              <Route path='/' exact={true} component={Home} />
            <SecureRoute path='/profile' exact={true} component={Profile} />
            {/* <SecureRoute path='/protected' component={Protected} /> */}
-           <Route path='/login' render={() => <Login baseUrl='https://dev-545576.okta.com' />} />
+           <Route path='/login' render={() => <Login baseUrl='https://dev-630882.okta.com' />} />
            <Route path='/implicit/callback' component={ImplicitCallback} />
         
         
