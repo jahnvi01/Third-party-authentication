@@ -1,9 +1,44 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import 'antd/dist/antd.css';
+import { Popconfirm, Switch, message } from 'antd';
 
 class prolist extends Component {
+  state = {
+    visible: false,
+    condition: true, // Whether meet the condition, if not show popconfirm.
+  };
+addcart=(product)=>{
+  this.props.addcart(product)
+}
 
+changeCondition = value => {
+  this.setState({ condition: value });
+};
+
+confirm = () => {
+  this.setState({ visible: false });
+  message.success('Added to cart');
+};
+
+cancel = () => {
+  this.setState({ visible: false });
+  message.error('Click on cancel.');
+};
+
+handleVisibleChange = visible => {
+  if (!visible) {
+    this.setState({ visible });
+    return;
+  }
+  // Determining condition before show the popconfirm.
+  console.log(this.state.condition);
+  if (this.state.condition) {
+    this.confirm(); // next step
+  } else {
+    this.setState({ visible }); // show the popconfirm
+  }
+};
     render() { 
         
        const { id,title,img,price }=this.props.product;
@@ -21,7 +56,18 @@ class prolist extends Component {
         
             <p>{title}</p>
             <p>{price}</p>
-           <button onClick={()=>this.props.addcart(this.props.product)}> add to cart </button>
+            <Popconfirm
+          title="Added to cart"
+          visible={this.state.visible}
+          onVisibleChange={this.handleVisibleChange}
+          onConfirm={this.confirm}
+          onCancel={this.cancel}
+          okText="Yes"
+          cancelText="No"
+        >
+      <button onClick={()=>this.addcart(this.props.product)}> add to cart </button>
+        </Popconfirm>
+         
             </div>
 
             </div>
