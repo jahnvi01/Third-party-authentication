@@ -5,8 +5,10 @@ import { Security, SecureRoute, ImplicitCallback } from '@okta/okta-react';
 import Login from './components/login';
 import Home from './components/home';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Cart from './components/cart';
 import Profile from './components/profile';
 import './App.css';
+import cart from './components/cart';
 
 const config = {
   issuer: 'https://dev-630882.okta.com/oauth2/default',
@@ -38,7 +40,7 @@ class App extends Component {
            <Route path='/login' render={() => <Login baseUrl='https://dev-630882.okta.com' />} />
            <Route path='/implicit/callback' component={ImplicitCallback} />
         
-        
+           <SecureRoute path='/cart' exact={true} component={cart} />
          </Security>
           
          </Router>

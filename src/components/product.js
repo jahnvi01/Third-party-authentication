@@ -40,7 +40,10 @@ class prolist extends Component {
 function mapDispatchToProps(dispatch){
 return{
     addcart:(item)=>{
- // const i=pros.push(item);
+
+ item.count=1;
+ item.total=item.price;
+
      dispatch({type:"Add",payload:item})
     },
     remove:(item)=>{

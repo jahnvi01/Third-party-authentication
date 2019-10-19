@@ -7,7 +7,13 @@
   height: 40vmin;
   pointer-events: none;
 }
-
+#empty{
+  text-align:center;
+padding: 3%;
+}
+.qty{
+  width:40px;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
