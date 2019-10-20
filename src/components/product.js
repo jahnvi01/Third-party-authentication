@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import 'antd/dist/antd.css';
 import { Popconfirm, Switch, message } from 'antd';
-
+import { withRouter } from "react-router";
 class prolist extends Component {
   state = {
     visible: false,
@@ -11,7 +11,10 @@ class prolist extends Component {
 addcart=(product)=>{
   this.props.addcart(product)
 }
-
+details=(product)=>{
+this.props.details(product);
+this.props.history.push('/details');
+}
 changeCondition = value => {
   this.setState({ condition: value });
 };
@@ -48,8 +51,8 @@ handleVisibleChange = visible => {
                 <div className="col-md-4 card-cont"> 
             <div className="card" key={id}>
            
-       
-            <div className="card-img">
+      
+            <div className="card-img" onClick={()=>{this.details(this.props.product)}}>
 <img src={img} alt="product" width="250" height="200" />     
                             
             </div> 
@@ -92,10 +95,10 @@ return{
 
      dispatch({type:"Add",payload:item})
     },
-    remove:(item)=>{
+    details:(product)=>{
       
-      // dispatch({type:"Remove",payload:item})
+       dispatch({type:"details",payload:product})
     }
 }
 }
-  export default connect(mapStateToProps,mapDispatchToProps)(prolist);
+  export default withRouter(connect(mapStateToProps,mapDispatchToProps)(prolist));

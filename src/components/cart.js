@@ -28,6 +28,7 @@ class cart extends Component {
             <p>Title: {product.title}</p>
             <p>Price: {product.price}</p>
          <p>Quantity: <input type="number" onChange={(event)=>this.count(event,index,product.id,product.price)} className="qty" defaultValue="1"/></p>
+         <button onClick={()=>this.props.remove(product.id)}> Delete </button>
                   </div>
      
                 </div>
@@ -88,7 +89,11 @@ subtotal:(id,count,amount)=>{
     
             dispatch({type:"Subtotal",payload:data});
             
-        }
+        },
+        remove:(id)=>{
+      
+             dispatch({type:"Remove",payload:id})
+          }
       
         }
       }

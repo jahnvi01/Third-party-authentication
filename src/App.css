@@ -7,7 +7,7 @@
   height: 40vmin;
   pointer-events: none;
 }
-#empty{
+#empty,.title{
   text-align:center;
 padding: 3%;
 }

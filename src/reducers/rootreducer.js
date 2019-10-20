@@ -25,23 +25,24 @@ repeat=1;
   
   };
 
- }else{  //  return state.filter((item,index)=>index!==match)
+ }else{ 
   return state;}
   
     case "Remove":
-    const match=state.indexOf(action.payload);
-  //  return state.filter((item,index)=>index!==match)
-return state;
+   
+    return {...state,cartproduct:state.cartproduct.filter(product=>product.id!==action.payload)};
+
 case "Subtotal": 
 return {...state,cartproduct:state.cartproduct.map(product=>
   product.id===action.payload.id ?
 
 { ...product, id: action.payload.id,count:action.payload.count,total:action.payload.amount } : 
-// otherwise return original todo
+
 product
   
   
 )}
+case "details":return {...state,detailProduct:action.payload}
 default:
     return state;
 }
